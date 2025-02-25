@@ -1,0 +1,104 @@
+.like-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.like-button.light {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+.like-button.light:hover {
+  border-color: #ff3258;
+  box-shadow: 0 4px 12px rgba(255, 50, 88, 0.2);
+}
+
+.like-button.light.active {
+  border-color: #ff3258;
+  background-color: rgba(255, 50, 88, 0.1);
+}
+
+.like-button.dark {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.like-button.dark:hover {
+  border-color: #ff3258;
+  box-shadow: 0 4px 12px rgba(255, 50, 88, 0.2);
+}
+
+.like-button.dark.active {
+  border-color: #ff3258;
+  background-color: rgba(255, 50, 88, 0.1);
+}
+
+.like-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.like-button.active .like-icon {
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+.like-text {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.like-button.light .like-text {
+  color: #333;
+}
+
+.like-button.dark .like-text {
+  color: #fff;
+}
+
+.like-button.active .like-text {
+  color: #ff3258;
+}
+
+.like-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 50, 88, 0.2), transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.like-button.active::before {
+  transform: translate(-50%, -50%) scale(1);
+}
